@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:networking/model.dart';
+import 'package:networking/Network/model.dart';
 
 Future<Welcome> fetchData() async {
   final dio = Dio();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'model.dart';
-import 'network.dart';
+import 'Network/model.dart';
+import 'Network/network.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

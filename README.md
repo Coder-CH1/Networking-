@@ -1,2 +1,2 @@
-# Networking-
-A project focused on Networking in Flutter.
+# _Networking-_
+### _A project focused on Networking in Flutter._

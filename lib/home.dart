@@ -11,36 +11,37 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late Future<Welcome> _welcomeFuture;
-  String _errorMessage = "";
+  final String _errorMessage = "";
   @override
   void initState() {
     super.initState();
     _welcomeFuture = fetchData();
   }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Networking"),
+        title: const Text("Networking"),
       ),
       body: Center(
         child: FutureBuilder<Welcome>(
           future: _welcomeFuture,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             } else if (snapshot.hasError) {
-              return Text("has error ${_errorMessage}");
+              return Text("has error $_errorMessage");
             } else if (snapshot.hasData) {
               final welcome = snapshot.data!;
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.network(welcome.message),
-                  Text("${welcome.status}")
+                  Text(welcome.status)
                 ],
               );
             } else {
-              return Text("Data not available");
+              return const Text("Data not available");
             }
           },
         ),
